@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 export DEFAULT_MAVEN_VERSION="3.6.2"
-export BUILDPACK_STDLIB_URL="https://lang-common.s3.amazonaws.com/buildpack-stdlib/v7/stdlib.sh"
+export BUILDPACK_STDLIB_URL="https://buildpacks.oss-accelerate.aliyuncs.com/common/stdlib/stdlib.sh"
 
 install_maven() {
   local installDir=$1
@@ -14,7 +14,7 @@ install_maven() {
   mcount "mvn.version.${mavenVersion}"
 
   status_pending "Installing Maven ${mavenVersion}"
-  local mavenUrl="https://lang-jvm.s3.amazonaws.com/maven-${mavenVersion}.tar.gz"
+  local mavenUrl="https://buildpacks.oss-accelerate.aliyuncs.com/jvm/maven-${mavenVersion}.tar.gz"
   if is_supported_maven_version "${mavenVersion}" "${mavenUrl}"; then
     download_maven "${mavenUrl}" "${installDir}" "${mavenHome}"
     status_done
@@ -88,7 +88,7 @@ install_jdk() {
   local cache_dir=${2}
 
   let start=$(nowms)
-  JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:-https://buildpack-registry.s3.amazonaws.com/buildpacks/heroku/jvm.tgz}
+  JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:-https://buildpacks.oss-accelerate.aliyuncs.com/common/jvm/jvm.tgz}
   mkdir -p /tmp/jvm-common
   curl --retry 3 --silent --location $JVM_COMMON_BUILDPACK | tar xzm -C /tmp/jvm-common --strip-components=1
   source /tmp/jvm-common/bin/util
