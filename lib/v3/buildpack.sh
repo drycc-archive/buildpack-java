@@ -2,9 +2,9 @@
 
 bp_install_or_reuse_toolbox() {
   local layer_dir=$1
-  local jqUrl="http://buildpacks.drycc.cc/github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64"
+  local jqUrl="https://buildpacks.drycc.cc/github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64"
   local jqSha="c6b3a7d7d3e7b70c6f51b706a3b90bd01833846c54d32ca32f0027f00226ff6d"
-  local yjUrl="http://buildpacks.drycc.cc/github.com/sclevine/yj/releases/download/v2.0/yj-linux"
+  local yjUrl="https://buildpacks.drycc.cc/github.com/sclevine/yj/releases/download/v2.0/yj-linux"
   local yjSha="db2b94b7fbf0941b6af9d30c1e7d43e41be62edad59d711b5c760ad5b13f7d6c"
 
   mkdir -p "${layer_dir}/bin"
